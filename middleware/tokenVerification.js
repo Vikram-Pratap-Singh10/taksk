@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 export const tokenVerification = (req, res, next) => {
-    let token = req.headers.authorization;
+    let token = req.headers.Authorization;
     try {
         if (!token)
             throw new Error();
 
         token = token.split(" ")[1]
-        jwt.verify(token, "dfjkdlfkdfljklfjdfk")
+        jwt.verify(token)
         next();
     }
     catch (err) {
